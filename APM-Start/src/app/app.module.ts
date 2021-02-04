@@ -7,18 +7,30 @@ import { FormsModule } from '@angular/forms';
 import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star-component/star.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailComponent } from './products/product-detail.component';
+import { WelcomeComponent } from './home/welcome.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ConvertToSpacesPipe,
-    StarComponent
+    StarComponent,
+    ProductDetailComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([ /* RouterLink and  RouterOutlet*/
+      { path: 'products', component: ProductListComponent },
+      { path: 'products/:id', component: ProductDetailComponent },
+      { path: 'welcome', component: WelcomeComponent },
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+    ]) 
   ],
   bootstrap: [AppComponent]
 })
