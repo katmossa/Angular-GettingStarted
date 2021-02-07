@@ -4,8 +4,6 @@ import { StarComponent } from './star-component/star.component';
 import { ConvertToSpacesPipe } from './pipes/convert-to-spaces.pipe';
 import { FormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     StarComponent,
